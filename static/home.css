@@ -1,0 +1,39 @@
+body {
+    background-color: var(--nord1);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.island-left {
+    background-color: var(--nord2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 47%;
+    margin-right: 20px;
+}
+.island-right {
+    background-color: var(--nord2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 47%;
+}
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+button {
+    background-color: var(--nord9);
+    color: var(--nord0);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+button:hover {
+    background-color: var(--nord6);
+}

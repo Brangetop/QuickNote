@@ -1,0 +1,53 @@
+body {
+    background-color: var(--nord1);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.island-left {
+    background-color: var(--nord2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    margin-right: 20px;
+}
+.message-container {
+    background-color: var(--nord1);
+    padding: 16px;
+    border-radius: 8px;
+    color: inherit;
+    margin-top: 12px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid var(--nord6);
+    cursor: text;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+}
+.island-right {
+    background-color: var(--nord2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 24%;
+}
+.warning-island {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.file-name {
+    margin-top: 10px;
+    font-weight: bold;
+}
