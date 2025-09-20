@@ -29,6 +29,7 @@ When a user wants to view a note, the **viewHandler function** retrieves the not
   <em>Simple schematic of e2e encryption</em>
 </p>
 This service ensures privacy by incorporating a unique key into the link format, e.g. example.com/ID#Key. This design guarantees that access to data is restricted, even from the service provider. By utilizing this method, QuickNote prioritize user confidentiality and data protection.
+
 # ⚙Documentation
 | File Name   | Description                                                                 |
 |-------------|-----------------------------------------------------------------------------|
