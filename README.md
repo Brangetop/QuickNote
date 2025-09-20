@@ -21,6 +21,14 @@ When a user creates a note, they fill out a form that includes the note content 
 If a file is uploaded, the handler creates a directory named after the generated link to store the file. It saves the uploaded file in this directory and records the creation time in a hidden file. After successfully saving the file, the note content is stored in the database along with the generated link.
 
 When a user wants to view a note, the **viewHandler function** retrieves the note content using the unique link. After displaying the note, it **deletes the message** from the database to ensure that it is no longer accessible. This process maintains the privacy and ephemeral nature of the notes, as they are removed after being viewed.
+
+<p align="center">
+  <img width="700" height="700" alt="Encryption process" src="https://github.com/user-attachments/assets/ec9468f9-2322-45c8-ab67-b765e57cd284" />
+</p>
+<p align="center">
+  <em>Simple schematic of e2e encryption</em>
+</p>
+This service ensures privacy by incorporating a unique key into the link format, e.g. example.com/ID#Key. This design guarantees that access to data is restricted, even from the service provider. By utilizing this method, QuickNote prioritize user confidentiality and data protection.
 # ⚙Documentation
 | File Name   | Description                                                                 |
 |-------------|-----------------------------------------------------------------------------|
