@@ -9,7 +9,7 @@ Key Features:
 With **QuickNote**, you can share sensitive information with confidence, knowing that your data is **secure and ephemeral**.
 # 📝How does it work
 <p align="center">
-  <img width="1088" height="700" alt="canvas" src="https://github.com/user-attachments/assets/8b1d572f-00e6-4dda-bfde-bda92319a502" />
+  <img width="1088" height="700" alt="canvas" src="https://github.com/user-attachments/assets/e337b7d7-beba-43fd-aac1-7dd0a32d1734" />
 </p>
 <p align="center">
   <em>Simple schematic of server-side code</em>
