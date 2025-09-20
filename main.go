@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"io"
+	"log"
 	"math/rand"
 	"net/http"
 	"os"
@@ -21,6 +22,11 @@ func init() {
 	db.InitDB(cfg)
 }
 
+// Added for debugging. Would recommend to add to new functions you create.
+func logRequest(r *http.Request) {
+	log.Printf("Received request: %s %s", r.Method, r.URL.Path)
+}
+
 // Here you can change msg ID lenght and charset
 func generateLink() string {
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -34,12 +40,14 @@ func generateLink() string {
 // Handlers
 // This page only renders HTML template.
 func createHandler(w http.ResponseWriter, r *http.Request) {
+	logRequest(r)
 	tmpl := template.Must(template.ParseFiles("templates/create.html"))
 	tmpl.Execute(w, nil)
 }
 
 // This handler puts your message to DB and saves files(if they were uploaded) to /uploads with time stamp.
 func saveHandler(w http.ResponseWriter, r *http.Request) {
+	logRequest(r)
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
@@ -92,6 +100,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 
 // This handler renders your message and files
 func viewHandler(w http.ResponseWriter, r *http.Request) {
+	logRequest(r)
 	link := r.URL.Path[len("/view/"):]
 	content, err := db.GetMessage(link)
 	if err != nil {
@@ -132,6 +141,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 // Handler for downloading files from server.
 func downloadHandler(w http.ResponseWriter, r *http.Request) {
+	logRequest(r)
 	filePath := r.URL.Path[len("/download/"):]
 
 	fullPath := "uploads/" + filePath
@@ -153,6 +163,7 @@ func downloadHandler(w http.ResponseWriter, r *http.Request) {
 
 // Just a home page.
 func homeHandler(w http.ResponseWriter, r *http.Request) {
+	logRequest(r)
 	tmpl := template.Must(template.ParseFiles("templates/home.html"))
 	tmpl.Execute(w, nil)
 }

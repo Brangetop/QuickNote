@@ -34,10 +34,10 @@ When a user wants to view a note, the **viewHandler function** retrieves the not
 
 ## Database Configuration
 To **configure the database**, edit the .env file with the following parameters: 
-1. DB_USER: Your MySQL username (e.g., root).
-2. DB_PASSWORD: Your MySQL password (e.g., 1290).
-3. DB_NAME: The name of the database to use (e.g., messages).
-4. DB_HOST: The host where the MySQL server is running (e.g., localhost).
+1. **DB_USER**: Your MySQL username (e.g., root).
+2. **DB_PASSWORD**: Your MySQL password (e.g., 1290).
+3. **DB_NAME**: The name of the database to use (e.g., messages).
+4. **DB_HOST**: The host where the MySQL server is running (e.g., localhost).
 ## Dependencies
 The project uses the following indirect **dependencies**: 
 1. filippo.io/edwards25519 v1.1.0: A cryptographic library for secure operations.
@@ -45,3 +45,8 @@ The project uses the following indirect **dependencies**:
 3. github.com/joho/godotenv v1.5.1: A library for loading environment variables from a .env file.
 ## Running the Application
 Ensure you have Go installed and set up on your machine. Install the required dependencies using go mod tidy. Create the MySQL database and the messages table with appropriate fields. Run the application using go run main.go. **Access the application at** http://localhost:8080.
+# To-Do list
+1. Fix SQL injection.
+2. Finish end-to-end encryption.
+3. Improve frontend(make it more usable and customizable).
+4. Finish another project for server auto-cleanup.
