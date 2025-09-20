@@ -11,6 +11,8 @@ import (
 
 var DB *sql.DB
 
+// Some function for connecting and sending requests to database server.
+// Edit .env to configure !
 func InitDB(cfg config.Config) {
 	var err error
 	dsn := cfg.DBUser + ":" + cfg.DBPassword + "@tcp(" + cfg.DBHost + ")/" + cfg.DBName

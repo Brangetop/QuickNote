@@ -21,6 +21,7 @@ func init() {
 	db.InitDB(cfg)
 }
 
+// Here you can change msg ID lenght and charset
 func generateLink() string {
 	const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	link := make([]byte, 10)
@@ -31,11 +32,13 @@ func generateLink() string {
 }
 
 // Handlers
+// This page only renders HTML template.
 func createHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("templates/create.html"))
 	tmpl.Execute(w, nil)
 }
 
+// This handler puts your message to DB and saves files(if they were uploaded) to /uploads with time stamp.
 func saveHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -87,6 +90,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	_ = tmpl.Execute(w, map[string]string{"Link": "localhost:8080/view/" + link})
 }
 
+// This handler renders your message and files
 func viewHandler(w http.ResponseWriter, r *http.Request) {
 	link := r.URL.Path[len("/view/"):]
 	content, err := db.GetMessage(link)
@@ -126,6 +130,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Handler for downloading files from server.
 func downloadHandler(w http.ResponseWriter, r *http.Request) {
 	filePath := r.URL.Path[len("/download/"):]
 
@@ -146,6 +151,7 @@ func downloadHandler(w http.ResponseWriter, r *http.Request) {
 	io.Copy(w, file)
 }
 
+// Just a home page.
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("templates/home.html"))
 	tmpl.Execute(w, nil)
