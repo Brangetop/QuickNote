@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Link</title>
+    <script>
+        function copyToClipboard() {
+            const link = document.getElementById("messageLink");
+            link.select();
+            document.execCommand("copy");
+        }
+    </script>
+    <style>
+        body {
+            background-color: var(--nord1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .island {
+            background-color: var(--nord2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="island">
+        <h1>Your message is saved!</h1>
+        <p>One-time link to your message:</p>
+        <input type="text" id="messageLink" value="{{.Link}}" readonly>
+        <div class="button-container" style="margin-top: 20px;">
+            <button onclick="copyToClipboard()">Copy link</button>
+        </div>
+    </div>
+</body>
+</html>

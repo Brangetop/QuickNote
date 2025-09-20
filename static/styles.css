@@ -1,0 +1,37 @@
+/* Основные цвета Nord */
+:root {
+    --nord0: #2E3440; /* фон */
+    --nord1: #3B4252; /* темный фон */
+    --nord2: #434C5E; /* серый */
+    --nord3: #4C566A; /* светло-серый */
+    --nord4: #D8DEE9; /* светлый текст */
+    --nord5: #EBCB8B; /* желтый */
+    --nord6: #A3BE8C; /* зеленый */
+    --nord7: #BF616A; /* красный */
+    --nord8: #B48EAD; /* фиолетовый */
+    --nord9: #88C0D0; /* голубой */
+    --nord10: #81A1C1; /* синий */
+}
+
+body {
+    background-color: var(--nord0);
+    color: var(--nord4);
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: var(--nord4);
+}
+
+button {
+    background-color: var(--nord9);
+    color: var(--nord0);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--nord6);
+}

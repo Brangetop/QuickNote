@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>View message</title>
+    <style>
+        body {
+            background-color: var(--nord1);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .island-left {
+            background-color: var(--nord2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 70%;
+            margin-right: 20px;
+        }
+        .message-container {
+            background-color: var(--nord1);
+            padding: 16px;
+            border-radius: 8px;
+            color: inherit;
+            margin-top: 12px;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            max-height: 400px;
+            overflow: auto;
+            border: 1px solid var(--nord6);
+            cursor: text;
+            user-select: text;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+        }
+        .island-right {
+            background-color: var(--nord2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 24%;
+        }
+        .warning-island {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .file-name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="island-left">
+            <h1>Message</h1>
+
+            <div class="message-container">
+                <p style="margin:0;">{{.Content}}</p>
+            </div>
+
+            {{if .FileExists}}
+                <div class="file-name">{{.FileName}}</div>
+                <a href="/download/{{.Link}}/{{.FileName}}" download>Download file</a>
+                {{if .IsImage}}
+                    <img src="/uploads/{{.Link}}/{{.FileName}}" alt="{{.FileName}}" style="max-width: 100%; height: auto; margin-top: 10px;" />
+                {{end}}
+                <div class="warning-island">
+                    <strong>Warning:</strong> This file may be potentially unsafe. We were unable to verify its safety.
+                </div>
+            {{end}}
+        </div>
+        <div class="island-right">
+            <h1>Want to create your own message?</h1>
+            <p>Click the button below and send your one-time private message to anyone. Anonymously.</p>
+            <div class="button-container" style="margin-top: 20px; text-align: center;">
+                <a href="/create"><button>New message</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

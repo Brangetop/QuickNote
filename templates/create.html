@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>New message</title>
+    <style>
+        body {
+            background-color: var(--nord1);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .island-left {
+            background-color: var(--nord2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 70%;
+            margin-right: 20px;
+        }
+        .island-right {
+            background-color: var(--nord2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 24%;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            background-color: var(--nord9);
+            color: var(--nord0);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: var(--nord7);
+        }
+        textarea {
+            background-color: var(--nord4);
+            border: 1px solid var(--nord6);
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(100% - 20px);
+            height: 100px;
+            font-size: 18px;
+            resize: none;
+            box-sizing: border-box;
+        }
+        textarea::placeholder {
+            color: var(--nord8);
+            opacity: 0.7;
+        }
+        .char-count {
+            font-size: 14px;
+            color: var(--nord8);
+            margin-top: 5px;
+        }
+        #infoList {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="island-left">
+            <h1>New message</h1>
+            <form action="/save" method="post" enctype="multipart/form-data">
+                <textarea id="messageContent" name="content" placeholder="Enter your message in this field..." required oninput="updateCharCount()"></textarea><br>
+                <div class="char-count" id="charCount">0 / 200</div>
+                <input type="file" name="file"><br>
+                <div class="button-container">
+                    <input type="submit" value="     Save     ">
+                </div>
+            </form>
+            <div id="infoToggle" style="cursor: pointer; margin-top: 20px; color: var(--nord7);">
+                <span>Stuff you want to know</span>
+                <span id="triangle" style="display: inline-block; margin-left: 5px;">▼</span>
+            </div>
+            <ul id="infoList">
+                <li>Uploaded files will be deleted 24 hours after sending.</li>
+                <li>Max message length is 200 characters.</li>
+                <li>Messages are deleted after being read.</li>
+                <li>Messages are encrypted.</li>
+            </ul>
+        </div>
+        <div class="island-right">
+            <h1>Tip</h1>
+            <p>Max text length is limited to 200 symbols.</p>
+        </div>
+    </div>
+    <script src="/static/scripts/create.js"></script>
+</body>
+</html>
